@@ -43,11 +43,18 @@ cd my-language-app
 # npm install
 
 # Using yarn
-# yarn create vite my-language-app --template react
-# cd my-language-app
-# yarn
-2. Add the Application CodeNavigate to the src folder within your newly created project (e.g., my-language-app/src/).Replace the contents of the existing App.jsx (or App.js) file with the code provided for the "Language Learning Chat App".If the provided code was in a file named App.js and your Vite project created App.jsx, you can either rename the file or ensure JSX syntax is correctly handled.3. Install DependenciesThe application relies on lucide-react for icons and tailwindcss for styling. After creating the project and navigating into its directory:# Navigate to your project root directory (e.g., my-language-app) if you're not already there.
+yarn create vite my-language-app --template react
+cd my-language-app
+yarn
+```
 
+### 2. Add the Application Code
+Navigate to the src folder within your newly created project (e.g., my-language-app/src/).Replace the contents of the existing App.jsx (or App.js) file with the code provided for the "Language Learning Chat App".If the provided code was in a file named App.js and your Vite project created App.jsx, you can either rename the file or ensure JSX syntax is correctly handled.
+
+### 3. Install Dependencies
+The application relies on lucide-react for icons and tailwindcss for styling. After creating the project and navigating into its directory:# Navigate to your project root directory (e.g., my-language-app) if you're not already there.
+
+```bash
 # Using npm
 # If you haven't run `npm install` after `npm create vite...`, run it first:
 npm install
@@ -61,15 +68,22 @@ npx tailwindcss init -p
 
 # Using yarn
 # If you haven't run `yarn` after `yarn create vite...`, run it first:
-# yarn
+yarn
 
 # Install specific dependencies:
-# yarn add lucide-react
-# yarn add -D tailwindcss postcss autoprefixer
+yarn add lucide-react
+yarn add -D tailwindcss postcss autoprefixer
 
 # Initialize Tailwind CSS
-# yarn tailwindcss init -p
-4. Configure Tailwind CSSConfigure template paths:Open your tailwind.config.js file (created in the previous step) and modify the content array to include paths to all of your component files. This tells Tailwind where to look for class names./** @type {import('tailwindcss').Config} */
+yarn tailwindcss init -p
+```
+
+### 4. Configure Tailwind CSS
+#### 1. Configure template paths:
+Open your tailwind.config.js file (created in the previous step) and modify the content array to include paths to all of your component files. This tells Tailwind where to look for class names.
+
+```javascript
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -80,12 +94,56 @@ export default {
   },
   plugins: [],
 }
-Add Tailwind directives to your CSS:Open your main CSS file (usually src/index.css for Vite projects) and add the following lines at the very top. Replace any existing content if this is your primary styling method.@tailwind base;
+```
+#### 2. Add Tailwind directives to your CSS:
+Open your main CSS file (usually src/index.css for Vite projects) and add the following lines at the very top. Replace any existing content if this is your primary styling method.
+
+```css
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
-Ensure this CSS file is imported into your main JavaScript entry point (e.g., src/main.jsx or src/main.js). Vite's React template usually handles this by default.5. Run the ApplicationOnce all dependencies are installed and configurations are set, you can start the development server:# Using npm
+```
+Ensure this CSS file is imported into your main JavaScript entry point (e.g., src/main.jsx or src/main.js). Vite's React template usually handles this by default.
+
+### 5. Run the Application
+Once all dependencies are installed and configurations are set, you can start the development server:
+
+```javascript
+# Using npm
 npm run dev
 
 # Using yarn
 # yarn dev
-This will typically start the development server and open the application in your default web browser at http://localhost:5173 (this port may vary if 5173 is in use). The terminal will display the correct address.Project Structure (Simplified Vite Structure)my-language-app/├── public/               # Static assets (e.g., favicon.ico)├── src/│   ├── assets/           # Default assets from Vite (e.g., react.svg). Can be removed if not used.│   ├── App.jsx           # Main application component code│   ├── main.jsx          # Entry point, renders App component│   └── index.css         # Global styles with Tailwind directives├── .eslintrc.cjs         # ESLint configuration (filename may vary)├── index.html            # Main HTML file (entry point for Vite)├── package.json          # Project dependencies and scripts├── postcss.config.js     # PostCSS configuration (for Tailwind)├── tailwind.config.js    # Tailwind CSS configuration└── vite.config.js        # Vite configurationHow to UseLaunch the app: Follow the "Run the Application" steps.Create an NPC: Click the "+" (New NPC) button in the sidebar. Fill in the details like name, language, personality, error sensitivity, and conversation objective.Select an NPC: Click on an NPC from the sidebar to start a chat.Chat: Type your messages in the input field and press Enter or click the send button. Observe narrator hints (if enabled and triggered) and how the NPC responds based on its configuration.Configure an NPC: During a chat, click the settings (gear) icon in the chat header to modify the current NPC's settings.View Feedback: After a conversation task is deemed complete (or failed due to too many clarification attempts), a feedback screen will appear.
+```
+
+This will typically start the development server and open the application in your default web browser at http://localhost:5173 (this port may vary if 5173 is in use). The terminal will display the correct address.
+
+### Project Structure (Simplified Vite Structure)
+```text
+my-language-app/
+├── public/               # Static assets (e.g., favicon.ico)
+├── src/
+│   ├── assets/           # Default assets from Vite (e.g., react.svg). Can be removed if not used.
+│   ├── App.jsx           # Main application component code
+│   ├── main.jsx          # Entry point, renders App component
+│   └── index.css         # Global styles with Tailwind directives
+├── .eslintrc.cjs         # ESLint configuration (filename may vary)
+├── index.html            # Main HTML file (entry point for Vite)
+├── package.json          # Project dependencies and scripts
+├── postcss.config.js     # PostCSS configuration (for Tailwind)
+├── tailwind.config.js    # Tailwind CSS configuration
+└── vite.config.js        # Vite configuration
+```
+
+### How to Use
+1. Launch the app: Follow the "Run the Application" steps.
+
+2. Create an NPC: Click the "+" (New NPC) button in the sidebar. Fill in the details like name, language, personality, error sensitivity, and conversation objective.
+
+3. Select an NPC: Click on an NPC from the sidebar to start a chat.
+
+4. Chat: Type your messages in the input field and press Enter or click the send button. Observe narrator hints (if enabled and triggered) and how the NPC responds based on its configuration.
+
+5. Configure an NPC: During a chat, click the settings (gear) icon in the chat header to modify the current NPC's settings.
+
+6. View Feedback: After a conversation task is deemed complete (or failed due to too many clarification attempts), a feedback screen will appear.
